@@ -4,7 +4,6 @@ function start() {
 
   const scaleFactor = 1.5; // Коэффициент увеличения
 
-  const imgUrl = "https://i.ibb.co/Q9yv5Jk/flappy-bird-set.png";
   const img = new Image();
   img.src = "bird.png";
 
@@ -14,7 +13,13 @@ function start() {
   const GRAVITY = 0.5 * scaleFactor; // Увеличиваем гравитацию
   const FLAP = -8 * scaleFactor; // Увеличиваем подъем при нажатии
   const SIZE = [34, 24]; // Увеличиваем размеры птицы
-  let BestScore;
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "r") {
+      restartGame();
+    }
+  });
+
   let gameOver = false;
   let score = 0;
   if (localStorage.getItem("BestScore") === null) {
